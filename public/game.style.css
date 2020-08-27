@@ -19,27 +19,29 @@ body {
   border-radius: 30%;
 }
 .food {
-  background-color: hsl(50, 100%, 50%);
-  border: 0.25vmin solid #000;
+  background: url('./apple.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .head {
   background-color: hsl(200, 100%, 28%);
 }
 .tail-top {
-  border-top-left-radius: 90%;
-  border-top-right-radius: 90%;
+  border-top-left-radius: 20px 30px;
+  border-top-right-radius: 20px 30px;
 }
 .tail-bottom {
-  border-bottom-left-radius: 90%;
-  border-bottom-right-radius: 90%;
+  border-bottom-left-radius: 20px 30px;
+  border-bottom-right-radius: 20px 30px;
 }
 .tail-left {
-  border-bottom-left-radius: 90%;
-  border-top-left-radius: 90%;
+  border-bottom-left-radius: 30px 20px;
+  border-top-left-radius: 30px 20px;
 }
 .tail-right {
-  border-bottom-right-radius: 90%;
-  border-top-right-radius: 90%;
+  border-bottom-right-radius: 30px 20px;
+  border-top-right-radius: 30px 20px;
 }
 .eyes {
   width: 100%;

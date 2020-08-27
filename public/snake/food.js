@@ -7,6 +7,9 @@ let foods = [
   getRandomFoodPosition(),
   getRandomFoodPosition(),
   getRandomFoodPosition(),
+  getRandomFoodPosition(),
+  getRandomFoodPosition(),
+  getRandomFoodPosition(),
 ];
 const EXTENSION_RATE = 1;
 
