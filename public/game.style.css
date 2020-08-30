@@ -57,3 +57,6 @@ body {
 .eyes-right {
   transform: rotate(-90deg);
 }
+#snake-canvas {
+  background-color: bisque;
+}

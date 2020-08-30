@@ -1,4 +1,4 @@
-const snake = require('./snake');
+const { step } = require('./grid');
 
 const players = {};
 const snakes = new Map([]);
@@ -62,21 +62,21 @@ function changeDirectionHandler(key, dir) {
       {
         if (direction.y !== 0) break;
         direction.x = 0;
-        direction.y = -1;
+        direction.y = -step;
       }
       break;
     case 'ArrowDown':
       {
         if (direction.y !== 0) break;
         direction.x = 0;
-        direction.y = 1;
+        direction.y = step;
       }
       break;
     case 'ArrowLeft':
       {
         if (direction.x !== 0) break;
 
-        direction.x = -1;
+        direction.x = -step;
         direction.y = 0;
       }
       break;
@@ -84,7 +84,7 @@ function changeDirectionHandler(key, dir) {
       {
         if (direction.x !== 0) break;
 
-        direction.x = 1;
+        direction.x = step;
         direction.y = 0;
       }
       break;
