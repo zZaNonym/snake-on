@@ -30,11 +30,11 @@ function start(io) {
   const game = setInterval(() => {
     if (gameover) clearInterval(game);
 
+    update();
     io.in('game').emit('render', {
-      snakesBody: snakes.mapToArray(['snakeBody', 'dir']),
+      snakesBody: snakes.mapToArray(['snakeBody', 'dir', 'prevDir']),
       foods,
     });
-    update();
   }, 100);
 
   return game;

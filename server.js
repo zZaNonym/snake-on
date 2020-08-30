@@ -9,7 +9,7 @@ const {
   snakes,
   players,
 } = require('./public/snake/players');
-const { getRandomFoodPosition } = require('./public/snake/food');
+const { getRandomEmpyPosition } = require('./public/snake/food');
 
 const { v4: uuidv4 } = require('uuid');
 
@@ -47,9 +47,11 @@ io.on('connection', (socket) => {
   });
 
   socket.on('start-game', () => {
+    const snakePos = getRandomEmpyPosition();
     snakes.set(ID, {
       dir: { x: 0, y: 0 },
-      snakeBody: [getRandomFoodPosition()],
+      prevDir: { x: 0, y: 20 },
+      snakeBody: [snakePos, { ...snakePos, y: snakePos.y - 20 }],
       newSegments: { nr: 0 },
     });
     socket.emit('game-started');

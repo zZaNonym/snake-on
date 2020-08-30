@@ -39,13 +39,15 @@ function addSegment(key) {
 }
 
 function updateSnakes() {
-  snakes.forEach(({ snakeBody, dir }, key) => {
+  snakes.forEach(({ snakeBody, dir: { x, y } }, key) => {
     addSegment(key);
-    for (let i = snakeBody.length - 2; i >= 0; i--) {
+
+    for (let i = snakeBody.length - 2; i >= 0 && (x !== 0 || y !== 0); i--) {
       snakeBody[i + 1] = { ...snakeBody[i] };
     }
-    snakeBody[0].y += dir.y;
-    snakeBody[0].x += dir.x;
+
+    snakeBody[0].y += y;
+    snakeBody[0].x += x;
   });
 }
 
@@ -55,7 +57,7 @@ function deletePlayer(key) {
 }
 
 function changeDirectionHandler(key, dir) {
-  const { dir: direction } = snakes.get(key);
+  const { dir: direction, prevDir } = snakes.get(key);
 
   switch (dir) {
     case 'ArrowUp':
@@ -94,6 +96,10 @@ function changeDirectionHandler(key, dir) {
         direction.y = 0;
       }
       break;
+  }
+  if (dir !== 'KeyP') {
+    prevDir.x = direction.x;
+    prevDir.y = direction.y;
   }
 }
 module.exports = {

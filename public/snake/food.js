@@ -4,12 +4,12 @@ const { snakes } = require('./players');
 const { onSnakeFoods, onSnakesPos } = require('./snake');
 
 let foods = [
-  getRandomFoodPosition(),
-  getRandomFoodPosition(),
-  getRandomFoodPosition(),
-  getRandomFoodPosition(),
-  getRandomFoodPosition(),
-  getRandomFoodPosition(),
+  getRandomEmpyPosition(),
+  getRandomEmpyPosition(),
+  getRandomEmpyPosition(),
+  getRandomEmpyPosition(),
+  getRandomEmpyPosition(),
+  getRandomEmpyPosition(),
 ];
 const EXTENSION_RATE = 1;
 
@@ -21,7 +21,7 @@ function updateFoods() {
   });
 }
 
-function getRandomFoodPosition() {
+function getRandomEmpyPosition() {
   let newPosition;
   while (newPosition == null || onSnakesPos(snakes, newPosition)) {
     newPosition = randomGridPosition();
@@ -31,11 +31,11 @@ function getRandomFoodPosition() {
 }
 
 function updateFood(key) {
-  foods[key] = getRandomFoodPosition();
+  foods[key] = getRandomEmpyPosition();
 }
 
 module.exports = {
   updateFoods,
   foods,
-  getRandomFoodPosition,
+  getRandomEmpyPosition,
 };
